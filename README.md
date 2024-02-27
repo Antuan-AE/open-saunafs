@@ -40,7 +40,7 @@ Check the [Quick Start guide](https://docs.saunafs.com/quick-start) for a
 simple setup of SaunaFS on a single machine.
 
 After the Quick Start Guide, for an advanced setup, please refer to the
-[Administration Guide](https://docs.saunafs.com/advanced-setup) as a starting
+[Administration Guide](https://docs.saunafs.com/administration-guide) as a starting
 place.
 
 ### Building from source
@@ -68,7 +68,7 @@ nice -n 16 make -j$(nproc)
 There are 2 types of documentation available:
 
 * [Online documentation for a general overview](https://docs.saunafs.com/)
-* [Man pages for specific commands and service configuration](docs/)
+* [Man pages for specific commands and service configuration](doc/)
 
 ## Contributing
 
