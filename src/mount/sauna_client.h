@@ -107,6 +107,7 @@ struct FsInitParams {
 	static constexpr double   kDefaultAclCacheTimeout = 1.0;
 	static constexpr unsigned kDefaultAclCacheSize = 1000;
 	static constexpr bool     kDefaultVerbose = false;
+	static constexpr bool     kDirectIO = false;
 
 	// Thank you, GCC 4.6, for no delegating constructors
 	FsInitParams()
@@ -135,7 +136,8 @@ struct FsInitParams {
 	             mkdir_copy_sgid(kDefaultMkdirCopySgid), sugid_clear_mode(kDefaultSugidClearMode),
 	             use_rw_lock(kDefaultUseRwLock),
 	             acl_cache_timeout(kDefaultAclCacheTimeout), acl_cache_size(kDefaultAclCacheSize),
-	             verbose(kDefaultVerbose) {
+	             verbose(kDefaultVerbose),
+	             direct_io(kDirectIO) {
 	}
 
 	FsInitParams(const std::string &bind_host, const std::string &host, const std::string &port, const std::string &mountpoint)
@@ -164,7 +166,8 @@ struct FsInitParams {
 	             mkdir_copy_sgid(kDefaultMkdirCopySgid), sugid_clear_mode(kDefaultSugidClearMode),
 	             use_rw_lock(kDefaultUseRwLock),
 	             acl_cache_timeout(kDefaultAclCacheTimeout), acl_cache_size(kDefaultAclCacheSize),
-	             verbose(kDefaultVerbose) {
+	             verbose(kDefaultVerbose),
+	             direct_io(kDirectIO) {
 	}
 
 	std::string bind_host;
@@ -211,6 +214,7 @@ struct FsInitParams {
 	unsigned acl_cache_size;
 
 	bool verbose;
+	bool direct_io;
 
 	std::string io_limits_config_file;
 };

@@ -203,6 +203,13 @@ if [ ! -f /etc/sudoers.d/saunafstest ] || ! grep '# Ganesha' /etc/sudoers.d/saun
 	END
 fi
 
+if [ ! -f /etc/sudoers.d/saunafstest ] || grep '# Client' /etc/sudoers.d/saunafstest >/dev/null; then
+	cat <<-'END' >>/etc/sudoers.d/saunafstest
+		# Client
+		saunafstest ALL = NOPASSWD: /usr/bin/tee
+	END
+fi
+
 echo ; echo 'Fixing GIDs of users'
 for name in saunafstest saunafstest_{0..9}; do
 	uid=$(getent passwd "$name" | cut -d: -f3)
